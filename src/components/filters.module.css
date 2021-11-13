@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.container input {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}

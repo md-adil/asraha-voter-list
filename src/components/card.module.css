@@ -1,0 +1,32 @@
+.container {
+    border: 1px solid #BBB;
+    background: #fff;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    min-width: 350px;
+    max-width: 500px;
+    flex: 1;
+    position: relative;
+}
+.title {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.id {
+    --size: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: var(--size);
+    width: var(--size);
+    line-height: var(--size);
+    text-align: center;
+    background: rgba(0,0,0,.1);
+    border-radius: 50%;
+}
+.wards {
+    display: flex;
+    justify-content: space-between;
+}

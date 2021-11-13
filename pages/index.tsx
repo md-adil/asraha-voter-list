@@ -8,12 +8,13 @@ import { ICard } from '../src/types';
 import classes from "./index.module.css";
 import _ from "lodash";
 import { useFilter } from '../src/filter';
+import config from "../next.config";
 
 const Home: NextPage = () => {
   const router = useRouter();
   const [cards, setCards] = useState<ICard[]>([]);
   useEffect(() => {
-    fetch('/data.json').then(res => res.json()).then(rows => setCards(rows));
+    fetch(`${config.basePath}/data.json`).then(res => res.json()).then(rows => setCards(rows));
   }, []);
 
   const handlePage = (e: any) => {

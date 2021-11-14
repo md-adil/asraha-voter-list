@@ -13,7 +13,7 @@ export default function Filters(props: IFilterProps) {
     }
     return (
         <div className={classes.container}>
-            <input type="text" placeholder="ID Number" name="epic_no" onChange={onChange} value={query.epic_no} />
+            <input type="text" placeholder="ID Number" name="epic_no" onChange={onChange} defaultValue={query.epic_no} />
             <input type="text" placeholder="Name" name="name_eng" onChange={onChange} value={query.name_eng} />
             <input type="text" placeholder="Spouse Name" name="father_husband_name_eng" onChange={onChange} value={query.father_husband_name_eng} />
             <input type="text" placeholder="Ward Number" name="ward_no" onChange={onChange} value={query.ward_no} />

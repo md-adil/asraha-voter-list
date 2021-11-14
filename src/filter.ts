@@ -18,11 +18,22 @@ const types = [
 
 export function useFilter(cards: ICard[], query: any) {
     return useMemo(() => {
-        if (types.every(t => !query[t])) {
-            return cards;
-        }
         return cards.filter((card: any) => {
-            return types.every(t => !query[t] || card[t].toLowerCase().includes(query[t]))
+            return types.every(t => isMatched(t, card, query))
         });
     }, [cards, ...types.map(x => query[x])]);
+}
+
+function isMatched(type: string, card: Record<string, string>, query: Record<string, string>) {
+    if (!query[type]) {
+        return true;
+    }
+    if (type === "epic_no") {
+        return matchById(card as any, query[type]);
+    }
+    return card[type].toLowerCase().includes(query[type].toLowerCase())
+}
+
+function matchById(card: ICard, ids: string) {
+    return ids.split(",").some(id => card.epic_no.endsWith(id.trim()));
 }

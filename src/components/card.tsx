@@ -7,15 +7,26 @@ interface IProps {
 export function Card({card}: IProps) {
     return (
         <div className={classes.container}>
-            <div className={classes.id}>{card.id}</div>
-            <div>{card.epic_no}</div>
-            <div>
-                Age: {card.age} | Source: {card.source} | Status: {card.status}
+            <div className={classes.spaceBetween}>
+                <span>
+                    {card.epic_no}
+                </span>
+                <span className={classes.id}>{card.id}</span>
             </div>
+            
             <h3 className={classes.title}>
                 <div>{card.name_eng}</div>
                 <div>({card.name_hindi})</div>
             </h3>
+            <div className={classes.spaceBetween}>
+                <span>
+                    Age: {card.age}
+                </span>
+                <span>
+                    Source: {card.source}
+                </span>
+                {card.status && <span>Status: {card.status}</span>}
+            </div>
             <div>
                 <div>
                     Father / Husband:

@@ -24,6 +24,7 @@ const Home: NextPage = () => {
   const [allCards, total] = useListPagination(matchedCards, parseInt(router.query.page as any || 1));
   return (
     <div className={classes.container}>
+      <div className="no-print">
         { cards.length > 0 && <Filters card={cards[0]} /> }
         <div className={classes.totalResults}>
           Total results: <strong>{cards.length}</strong>
@@ -31,12 +32,13 @@ const Home: NextPage = () => {
         <div className={classes.totalResults}>
           Total matched: <strong>{matchedCards.length}</strong>
         </div>
+        </div>
         <div className={classes.cards}>
           {allCards.map(card => (
             <Card key={card.id} card={card} />
           ))}
         </div>
-        {_.range(1, Math.min(total, 20) + 1).map((n) => (<button onClick={handlePage} value={n} key={n} type="button">{n}</button>))}
+        <div className="no-print">{_.range(1, Math.min(total, 20) + 1).map((n) => (<button onClick={handlePage} value={n} key={n} type="button">{n}</button>))}</div>
     </div>
   )
 }

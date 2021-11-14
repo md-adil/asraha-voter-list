@@ -8,7 +8,7 @@ export function Card({card}: IProps) {
     return (
         <div className={classes.container}>
             <div className={classes.spaceBetween}>
-                <span>
+                <span className={classes.epicNo}>
                     {card.epic_no}
                 </span>
                 <span className={classes.id}>{card.id}</span>

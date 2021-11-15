@@ -28,6 +28,9 @@ function isMatched(type: string, card: Record<string, string>, query: Record<str
     if (!query[type]) {
         return true;
     }
+    if (type === "ward_no") {
+        return card[type] == query[type];
+    }
     if (type === "epic_no") {
         return matchById(card as any, query[type]);
     }

@@ -41,7 +41,7 @@ export function Card({card}: IProps) {
                 <span className={classes.para}>
                     Ward: {card.ward_no}
                 </span>
-                <span className={classes.para}>
+                <span className={classes.para} style={{fontWeight: 500}}>
                     Ward SN: {card.sl_no_in_ward}
                 </span>
             </div>

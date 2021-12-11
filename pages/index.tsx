@@ -14,8 +14,15 @@ const Home: NextPage = () => {
   const router = useRouter();
   const [cards, setCards] = useState<ICard[]>([]);
   useEffect(() => {
-    fetch(`${config.basePath}/data.json`).then(res => res.json()).then(rows => setCards(rows));
-  }, []);
+    const village = router.query.v;
+    if (!village) {
+      return;
+    }
+    if (!router.query.v) {
+      alert('not found');
+    }
+    fetch(`${config.basePath}/${village}.json`).then(res => res.json()).then(rows => setCards(rows));
+  }, [router.query.v]);
 
   const handlePage = (e: any) => {
     router.push(`?${new URLSearchParams({...router.query, page: e.target.value})}`);

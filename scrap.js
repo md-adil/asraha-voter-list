@@ -3,17 +3,17 @@ const fs = require('fs');
 const _ = require("lodash");
 
 function load() {
-    return cheerio.load(fs.readFileSync('./index.html'));
+    return cheerio.load(fs.readFileSync('./templates/nurchak.html'));
 }
 
 function scrap() {
     const $ = load();
     const data = [];
-    const header = $('table thead th').map(function() {
+    const header = $('table#myTable thead th').map(function() {
         return $(this).text();
     }).toArray();
 
-    $('table tbody tr').each(function() {
+    $('table#myTable tbody tr').each(function() {
         const row = {};
         for (const i in header) {
             row[makeKey(header[i])] = $(this).find('td').eq(i).text();
@@ -25,7 +25,7 @@ function scrap() {
 }
 
 function saveData(data) {
-    fs.writeFileSync('./public/data.json', JSON.stringify(data));
+    fs.writeFileSync('./public/nurchak.json', JSON.stringify(data));
 }
 
 function makeKey(title) {
